@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <article className="content">
+        <article className={styles.profile}>
             <section>
                 <img src="http://www.onwebbox.com/Content/onwebbox.com/Mngt/RealImage/834Online-Banner-Maker.jpg" alt="banner"/>
             </section>
@@ -14,9 +15,9 @@ const Profile = () => {
                 <section>
                     new post
                 </section>
-                <section>
-                    <div>post1</div>
-                    <div>post2</div>
+                <section className={styles.posts}>
+                    <div className={styles.item}>post1</div>
+                    <div className={styles.item}>post2</div>
                 </section>
             </section>
 

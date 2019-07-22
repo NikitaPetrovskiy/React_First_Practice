@@ -10,8 +10,8 @@ const MyPosts = () => {
                 new post
             </section>
             <section className={styles.posts}>
-                <Post/>
-                <Post/>
+                <Post message={`Hi! I'm First post!`} like=" 10"/>
+                <Post message={`It's Me! Second post!`} like=" 3"/>
             </section>
         </section>
     )

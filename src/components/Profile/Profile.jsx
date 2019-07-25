@@ -4,7 +4,7 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
-        <article className={styles.profile}>
+        <section>
             <section>
                 <img src="http://www.onwebbox.com/Content/onwebbox.com/Mngt/RealImage/834Online-Banner-Maker.jpg" alt="banner"/>
             </section>
@@ -12,7 +12,7 @@ const Profile = () => {
                 avatar + descr
             </section>
             <MyPosts/>
-        </article>
+        </section>
     )
 };
 

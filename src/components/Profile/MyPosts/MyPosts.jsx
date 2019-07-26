@@ -4,10 +4,15 @@ import Post from "./Post/Post";
 
 const MyPosts = () => {
     return (
-        <section>
-            my posts
+        <section className={styles.content}>
+            <h2>my posts</h2>
             <section>
-                new post
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Add post</button>
+                </div>
             </section>
             <section className={styles.posts}>
                 <Post message={`Hi! I'm First post!`} likesCount=" 10"/>

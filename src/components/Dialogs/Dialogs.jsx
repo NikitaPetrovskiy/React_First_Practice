@@ -1,40 +1,40 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 import styles from './Dialogs.module.css';
+
+
+const DialogItem = (props) => {
+    let path = `/dialogs/${props.id}`;
+    return (
+        <div className={`${styles.dialog} ${styles.active}`}>
+            <NavLink to={path}>{props.name}</NavLink>
+        </div>
+    )
+}
+const MessageItem = (props) => {
+    return (
+        <div className={styles.message}>
+            {props.textMessage}
+        </div>
+    )
+}
 
 const Dialogs = (props) => {
     return (
         <section>
             <div className={styles.dialogs}>
                 <div className={styles.dialogsItems}>
-                    <div className={`${styles.dialog} ${styles.active}`}>
-                        Sasha
-                    </div>
-                    <div className={styles.dialog} >
-                        Dima
-                    </div>
-                    <div className={styles.dialog}>
-                        Andrey
-                    </div>
-                    <div className={styles.dialog}>
-                        Masha
-                    </div>
-                    <div className={styles.dialog}>
-                        Jenia
-                    </div>
+                    <DialogItem name="Sasha" id="1"/>
+                    <DialogItem name="Dima" id="2"/>
+                    <DialogItem name="Andrey" id="3"/>
+                    <DialogItem name="Masha" id="4"/>
+                    <DialogItem name="Jenia" id="5"/>
                 </div>
                 <div className={styles.messages}>
-                    <div className={styles.message}>
-                        Hi!
-                    </div>
-                    <div className={styles.message}>
-                        Hello
-                    </div>
-                    <div className={styles.message}>
-                        Thank you!
-                    </div>
-                    <div className={styles.message}>
-                        Good bye!
-                    </div>
+                    <MessageItem textMessage="Hi!"/>
+                    <MessageItem textMessage="Hello!"/>
+                    <MessageItem textMessage="Thank you!"/>
+                    <MessageItem textMessage="Good bye!"/>
                 </div>
             </div>
         </section>

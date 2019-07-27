@@ -19,21 +19,34 @@ const MessageItem = (props) => {
 }
 
 const Dialogs = (props) => {
+    const dialogsData =[
+        {id: 1, name: 'Sasha'},
+        {id: 2, name: 'Dima'},
+        {id: 3, name: 'Andrey'},
+        {id: 4, name: 'Masha'},
+        {id: 5, name: 'Jenia'},
+    ];
+    const messagesData = [
+        {id: 1, messages: "Hi!"},
+        {id: 2, messages: "Hello my Maaan!"},
+        {id: 3, messages: "Thank you!"},
+        {id: 4, messages: "Yo!"},
+        {id: 5, messages: "Good bye!"},
+    ];
+
+    const dialogsElements = dialogsData
+        .map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>);
+    const messagesElements = messagesData
+        .map(message => <MessageItem textMessage={message.messages} id={message.id}/>);
+
     return (
         <section>
             <div className={styles.dialogs}>
                 <div className={styles.dialogsItems}>
-                    <DialogItem name="Sasha" id="1"/>
-                    <DialogItem name="Dima" id="2"/>
-                    <DialogItem name="Andrey" id="3"/>
-                    <DialogItem name="Masha" id="4"/>
-                    <DialogItem name="Jenia" id="5"/>
+                    {dialogsElements}
                 </div>
                 <div className={styles.messages}>
-                    <MessageItem textMessage="Hi!"/>
-                    <MessageItem textMessage="Hello!"/>
-                    <MessageItem textMessage="Thank you!"/>
-                    <MessageItem textMessage="Good bye!"/>
+                    {messagesElements}
                 </div>
             </div>
         </section>

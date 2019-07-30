@@ -5,7 +5,7 @@ import styles from './Navbar.module.css'
 
 const Navbar = (props) => {
     return (
-        <nav className={styles.nav}>
+            <nav className={styles.nav}>
             <div className={`${styles.item} ${styles.active}`}>
                 <NavLink to="/profile" activeClassName={styles.active}>Profile</NavLink>
             </div>

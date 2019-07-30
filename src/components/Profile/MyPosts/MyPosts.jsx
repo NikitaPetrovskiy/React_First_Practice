@@ -5,15 +5,21 @@ import Post from "./Post/Post";
 const MyPosts = (props) => {
     const postsElements = props.postsData
         .map(post =>  <Post id={post.id} message={post.messages} likesCount={post.likesCount}/>);
+    let newPostElement = React.createRef();
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        newPostElement.current.value = '';
+    }
     return (
         <section className={styles.content}>
             <h2>my posts</h2>
             <section>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
             </section>
             <section className={styles.posts}>

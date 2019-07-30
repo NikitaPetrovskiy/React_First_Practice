@@ -1,3 +1,5 @@
+import {rerenderEntireThree} from "../render";
+
 const state = {
     profilePage: {
         postsData: [
@@ -22,6 +24,23 @@ const state = {
             {id: 5, name: 'Jenia'},
         ],
     },
+    sideBar: {
+        friends: [
+            {id: 1, name: 'Sasha', url: 'https://marathonandsprint.files.wordpress.com/2013/03/yoda3.jpg'},
+            {id: 2, name: 'Dima', url: 'https://traditio.wiki/files/7/74/Anakin-Jedi.jpg'},
+            {id: 3, name: 'Andrey', url: 'https://starwars.su/persons/luke-skywalker/6.jpg'},
+        ]
+    }
 };
+
+export let addPost = (postMessage) => {
+    const newPosts = {
+        id: 4,
+        messages: postMessage,
+        likesCount: 0
+    };
+    state.profilePage.postsData.push(newPosts);
+    rerenderEntireThree(state);
+}
 
 export default state;

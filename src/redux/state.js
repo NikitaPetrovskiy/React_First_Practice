@@ -7,6 +7,7 @@ const state = {
             {id: 2, messages: 'It\'s Me! Second post!', likesCount: 3},
             {id: 3, messages: 'It\'s new post made with using .map()! ', likesCount: 1000},
         ],
+        newPostText: 'new post text',
     },
     dialogsPage: {
         messagesData: [
@@ -32,14 +33,21 @@ const state = {
         ]
     }
 };
+window.state = state;
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     const newPosts = {
         id: 4,
-        messages: postMessage,
+        messages: state.profilePage.newPostText,
         likesCount: 0
     };
     state.profilePage.postsData.push(newPosts);
+    state.profilePage.newPostText = '';
+    rerenderEntireThree(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
     rerenderEntireThree(state);
 }
 

@@ -1,4 +1,6 @@
-import {rerenderEntireThree} from "../render";
+let rerenderEntireThree = () => {
+    console.log('State changed');
+}
 
 const state = {
     profilePage: {
@@ -35,7 +37,7 @@ const state = {
 };
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
     const newPosts = {
         id: 4,
         messages: state.profilePage.newPostText,
@@ -43,12 +45,16 @@ export let addPost = () => {
     };
     state.profilePage.postsData.push(newPosts);
     state.profilePage.newPostText = '';
-    rerenderEntireThree(state);
+    rerenderEntireThree();
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderEntireThree(state);
+    rerenderEntireThree();
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireThree = observer;
 }
 
 export default state;

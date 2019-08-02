@@ -7,11 +7,12 @@ const MyPosts = (props) => {
         .map(post =>  <Post id={post.id} message={post.messages} likesCount={post.likesCount}/>);
     let newPostElement = React.createRef();
     let addPost = () => {
-        props.addPost();
+        props.dispatch({ type: 'ADD-POST' });
     }
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        let action = { type: 'UPDATE-NEW-POST', newText: text};
+        props.dispatch(action);
     }
     return (
         <section className={styles.content}>

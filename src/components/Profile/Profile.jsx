@@ -7,7 +7,7 @@ const Profile = (props) => {
     return (
         <section>
             <ProfileInfo/>
-            <MyPosts profilePage={props.state.profilePage} dispatch={props.dispatch} />
+            <MyPosts profilePage={props.store.profilePage} dispatch={props.dispatch} />
         </section>
     )
 };

@@ -4,10 +4,11 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
+    debugger;
     return (
         <section>
             <ProfileInfo/>
-            <MyPosts profilePage={props.store.profilePage} dispatch={props.dispatch} />
+            <MyPosts profilePage={props.profilePage} dispatch={props.dispatch} />
         </section>
     )
 };

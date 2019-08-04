@@ -17,7 +17,7 @@ function App(props) {
              <article className="app-wrapper-content">
                  <Route path='/profile' render={ () => <Profile
                      state={props.state} dispatch={props.dispatch} /> }/>
-                 <Route path='/dialogs'  render={ () => <Dialogs state={props.state}/> }/>
+                 <Route path='/dialogs'  render={ () => <Dialogs state={props.state} store={props.store}/> }/>
                  <Route path='/news' render={ () => <News/> }/>
                  <Route path='/music' render={ () => <Music/> }/>
                  <Route path="/settings" re={ () => <Settings/> }/>

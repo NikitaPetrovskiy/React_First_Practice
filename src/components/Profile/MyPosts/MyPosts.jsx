@@ -5,18 +5,16 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 
 const MyPosts = (props) => {
-    const postsElements = props.profilePage.postsData
+    const postsElements = props.posts
         .map(post =>  <Post id={post.id} message={post.message} likesCount={post.likesCount}/>);
-    let newPostElement = React.createRef();
 
-    let addPost = () => {
-        let action = addPostActionCreator();
-        props.dispatch(action);
+    let newPostElement = React.createRef();
+    let onAddPost = () => {
+        props.addPost();
     }
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = updateNewPostTextActionCreator(text);
-        props.dispatch(action);
+        props.updateNewPostText(text);
     }
 
     return (
@@ -24,10 +22,10 @@ const MyPosts = (props) => {
             <h2>my posts</h2>
             <section>
                 <div>
-                    <textarea ref={newPostElement} onChange={onPostChange} value={props.profilePage.newPostText}></textarea>
+                    <textarea ref={newPostElement} onChange={onPostChange} value={props.newPostText}></textarea>
                 </div>
                 <div>
-                    <button onClick={addPost}>Add post</button>
+                    <button onClick={onAddPost}>Add post</button>
                 </div>
             </section>
             <section className={styles.posts}>
